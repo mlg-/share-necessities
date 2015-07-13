@@ -1,4 +1,4 @@
- class DisplayPhotoUploader < CarrierWave::Uploader::Base
+class DisplayPhotoUploader < CarrierWave::Uploader::Base
    if Rails.env.test?
      storage :file
    else
