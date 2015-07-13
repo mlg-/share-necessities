@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20150713163004) do
   end
 
   create_table "organizers", force: :cascade do |t|
-    t.integer "user",         null: false
-    t.integer "organization", null: false
+    t.integer "user_id",         null: false
+    t.integer "organization_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
