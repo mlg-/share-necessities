@@ -24,16 +24,17 @@ feature "Organizer can edit an organization's details", %{
 
   scenario "organizer can access organization's edit page" do
     organizer = FactoryGirl.create(:organizer)
+    organization = organizer.organization
 
     sign_in_as(organizer.user)
 
-    visit edit_organization_path(organizer.organization)
+    visit edit_organization_path(organization)
 
-    expect(page).to have_content(organizer.organization.name)
+    expect(page).to have_content(organization.name)
     expect(page).to have_selector("input#organization_address
-                                  [value=\"#{organizer.organization.address}\"]")
+                                  [value=\"#{organization.address}\"]")
     expect(page).to have_selector("input#organization_city
-                                  [value=\"#{organizer.organization.city}\"]")
+                                  [value=\"#{organization.city}\"]")
     find_button("Update Organization")
   end
 
