@@ -31,10 +31,8 @@ feature "Organizer can edit an organization's details", %{
     visit edit_organization_path(organization)
 
     expect(page).to have_content(organization.name)
-    expect(page).to have_selector("input#organization_address
-                                  [value=\"#{organization.address}\"]")
-    expect(page).to have_selector("input#organization_city
-                                  [value=\"#{organization.city}\"]")
+    expect(page).to have_selector("input#organization_address[value=\"#{organization.address}\"]")
+    expect(page).to have_selector("input#organization_city[value=\"#{organization.city}\"]")
     find_button("Update Organization")
   end
 
