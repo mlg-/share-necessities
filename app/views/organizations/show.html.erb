@@ -1,1 +1,17 @@
 <h1><%= @organization.name %></h1>
+<div>
+  <%= image_tag(@organization.display_photo) %>
+  <%= @organization.address %>
+  <%= @organization.city %>
+  <%= @organization.state %>
+  <%= @organization.zip %>
+  <%= @organization.phone %>
+  <%= @organization.email %>
+</div>
+<div>
+  <%= @organization.description %>
+  <%= link_to "Website <i class=\"fa fa-external-link\"></i>".html_safe,
+   @organization.url %>
+  <%= @organization.delivery_instructions %>
+</div>
+

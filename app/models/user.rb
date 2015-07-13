@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :organizers
   has_many :organizations, through: :organizers
 
   # Include default devise modules. Others available are:
