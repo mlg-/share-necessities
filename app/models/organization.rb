@@ -4,4 +4,6 @@ class Organization < ActiveRecord::Base
   validates :city, presence: true
   validates :zip, presence: true
   validates :email, presence: true
+
+  mount_uploader :display_photo, DisplayPhotoUploader
 end
