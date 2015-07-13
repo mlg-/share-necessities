@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :edit]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @organization = Organization.new
@@ -23,7 +23,7 @@ class OrganizationsController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:id])
-    unless @organization.organizers.any? {|o| o.user_id == current_user.id}
+    unless @organization.organizers.any? { |o| o.user_id == current_user.id }
       flash[:error] = "You do not have permission to access this page."
     end
   end

@@ -5,7 +5,6 @@ feature "Organizer can edit an organization's details", %{
   I want to edit my organization’s information
   To keep volunteers informed of any changes
 } do
-
   # Acceptance Criteria
   # [X] (Only) Organizer can edit organization information
   # [X] Changes are reflected on the organization’s profile page.
@@ -19,7 +18,8 @@ feature "Organizer can edit an organization's details", %{
 
     visit edit_organization_path(organization)
 
-    expect(page).to have_content("You do not have permission to access this page.")
+    expect(page).to have_content("You do not have permission to
+                                  access this page.")
   end
 
   scenario "organizer can access organization's edit page" do
@@ -30,8 +30,10 @@ feature "Organizer can edit an organization's details", %{
     visit edit_organization_path(organizer.organization)
 
     expect(page).to have_content(organizer.organization.name)
-    expect(page).to have_selector("input#organization_address[value=\"#{organizer.organization.address}\"]")
-    expect(page).to have_selector("input#organization_city[value=\"#{organizer.organization.city}\"]")
+    expect(page).to have_selector("input#organization_address
+                                  [value=\"#{organizer.organization.address}\"]")
+    expect(page).to have_selector("input#organization_city
+                                  [value=\"#{organizer.organization.city}\"]")
     find_button("Update Organization")
   end
 
