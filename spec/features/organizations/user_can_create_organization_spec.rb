@@ -18,34 +18,34 @@ feature 'user can create an organization and become an organizer', %{
 
     sign_in_as(user)
 
-    visit '/'
+    visit "/"
     click_link("an organizer, and I want to add my organization.")
-    
+
     expect(page).to have_content("Add Your Organization")
   end
 
-  scenario 'logged in user can create a new org and become its organizer' do
+  scenario "logged in user can create a new org and become its organizer" do
     user = FactoryGirl.create(:user)
 
     sign_in_as(user)
     visit new_organization_path
 
-    fill_in('Name', with: "Rosie\'s Place")
-    fill_in('Address', with: "889 Harrison Ave")
-    fill_in('City', with: "Boston")
+    fill_in("Name", with: "Rosie\'s Place")
+    fill_in("Address", with: "889 Harrison Ave")
+    fill_in("City", with: "Boston")
     select("Massachusetts", from: "State")
-    fill_in('Zip Code', with: "02118")
-    fill_in('Description', with: "Rosie's Place was founded in 1974 as the first
+    fill_in("Zip Code", with: "02118")
+    fill_in("Description", with: "Rosie's Place was founded in 1974 as the first
                            women’s shelter in the United States. Our mission is
                            to provide a safe and nurturing environment that
                            helps poor and homeless women maintain their dignity,
                           seek opportunity and find security in their lives. ")
-    fill_in('Phone', with: "617-442-9322")
-    fill_in('Email', with: "rosie@mailinator.com")
-    fill_in('Url', with: "http://www.rosiesplace.org/")
+    fill_in("Phone", with: "617-442-9322")
+    fill_in("Email", with: "rosie@mailinator.com")
+    fill_in("Url", with: "http://www.rosiesplace.org/")
     attach_file("Display photo",
                 "#{Rails.root}/spec/support/images/logo_rosiesplace.png")
-    fill_in('Delivery instructions', with: "You can drop off donations to
+    fill_in("Delivery instructions", with: "You can drop off donations to
                                      Rosie's Place Monday through Friday, from
                                      8:30 am - 4:30 pm. Please note: Rosie's
                                      Place does not accept baby and children's
@@ -61,16 +61,16 @@ feature 'user can create an organization and become an organizer', %{
     expect(organizer.first.organization.name).to eq("Rosie's Place")
   end
 
-  scenario 'logged in user tries to create org without a name' do
+  scenario "logged in user tries to create org without a name" do
     user = FactoryGirl.create(:user)
 
     sign_in_as(user)
     visit new_organization_path
 
-    fill_in('Address', with: "889 Harrison Ave")
-    fill_in('City', with: "Boston")
+    fill_in("Address", with: "889 Harrison Ave")
+    fill_in("City", with: "Boston")
     select("Massachusetts", from: "State")
-    fill_in('Zip Code', with: "02118")
+    fill_in("Zip Code", with: "02118")
 
     click_button("Create Organization")
 
@@ -79,9 +79,10 @@ feature 'user can create an organization and become an organizer', %{
     expect(organizer.empty?).to be(true)
   end
 
-  scenario 'user cannot create an organization without logging in' do
+  scenario "user cannot create an organization without logging in" do
     visit new_organization_path
 
-    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content("You need to sign in or sign up
+                                 before continuing.")
   end
 end
