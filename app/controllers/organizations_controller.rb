@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
       redirect_to organization_path(@organization)
     else
       flash[:errors] = @organization.errors.full_messages.join(", ")
-      render 'new'
+      render "new"
     end
   end
 
