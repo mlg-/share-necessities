@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @organization = Organization.find(params[:organization_id])
-    
+
     unless @organization.organizer?(current_user)
       flash[:error] = "You do not have permission to access this page."
     end

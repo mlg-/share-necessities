@@ -24,7 +24,8 @@ feature "organizer can edit wishlist item for organization", %{
     expect(page).to have_content(item_2.name)
     click_link("item-#{item_1.id}")
 
-    expect(page).to have_content("Edit Hand Warmers on #{organization.name}'s Wishlist")
+    expect(page).to have_content("Edit Hand Warmers on
+                                 #{organization.name}'s Wishlist")
   end
 
   scenario "Organizer can submit a valid change to the item" do
@@ -50,7 +51,7 @@ feature "organizer can edit wishlist item for organization", %{
   scenario "One organizer cannot edit another organization's items" do
     organization = FactoryGirl.create(:organization)
     not_that_orgs_organizer = FactoryGirl.create(:organizer)
-    item = FactoryGirl.create(:item, organization: organization)
+    FactoryGirl.create(:item, organization: organization)
 
     sign_in_as(not_that_orgs_organizer.user)
 
@@ -62,7 +63,7 @@ feature "organizer can edit wishlist item for organization", %{
   scenario "A user unaffiliated with an organization cannot edit items" do
     organization = FactoryGirl.create(:organization)
     unaffiliated_user = FactoryGirl.create(:user)
-    item = FactoryGirl.create(:item, organization: organization)
+    FactoryGirl.create(:item, organization: organization)
 
     sign_in_as(unaffiliated_user)
 
