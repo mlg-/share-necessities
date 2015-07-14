@@ -1,6 +1,7 @@
 class Organization < ActiveRecord::Base
   has_many :organizers
   has_many :users, through: :organizers
+  has_many :items
 
   validates :name, presence: true
   validates :address, presence: true
