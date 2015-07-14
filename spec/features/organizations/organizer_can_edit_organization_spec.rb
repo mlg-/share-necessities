@@ -8,7 +8,7 @@ feature "Organizer can edit an organization's details", %{
   # Acceptance Criteria
   # [X] (Only) Organizer can edit organization information
   # [X] Changes are reflected on the organization’s profile page.
-  # [] Invalid changes are not permitted
+  # [X] Invalid changes are not permitted
 
   scenario "user cannot access organization's edit page" do
     user = FactoryGirl.create(:user)

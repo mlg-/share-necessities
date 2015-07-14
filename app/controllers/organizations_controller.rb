@@ -23,7 +23,7 @@ class OrganizationsController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:id])
-    unless @organization.organizers.any? { |o| o.user_id == current_user.id }
+    unless @organization.organizer?(current_user)
       flash[:error] = "You do not have permission to access this page."
     end
   end

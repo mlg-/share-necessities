@@ -6,9 +6,9 @@ feature "organizer can request item for organization", %{
   So that other helpful users will know what we need
 } do
   # Acceptance Criteria
-  # [ ] Organizer can add items to their wishlist using a form.
-  # [ ] The item is now visible from the organization’s wishlist page.
-  # [ ] A volunteer user or visitor can see the item,
+  # [X] Organizer can add items to their wishlist using a form.
+  # [X] The item is now visible from the organization’s wishlist page.
+  # [X] A volunteer user or visitor can see the item,
   #     date added, quantity needed, and an optional
   #     url and description for more information about the item.
 
@@ -55,7 +55,7 @@ feature "organizer can request item for organization", %{
     fill_in("Name", with: "Hand Warmers")
     fill_in("Quantity", with: "50")
     fill_in("Description", with: "One-use hand warmers.")
-    click_button("Add Item")
+    click_button("Create Item")
 
     expect(page).to have_content("Your item has been added.")
     expect(page).to have_content(organization.address)
@@ -75,7 +75,7 @@ feature "organizer can request item for organization", %{
     click_link("Add Items to Wishlist")
 
     fill_in("Name", with: "Hand Warmers")
-    click_button("Add Item")
+    click_button("Create Item")
 
     expect(page).to have_content("Quantity can't be blank")
   end

@@ -11,7 +11,7 @@ FactoryGirl.define do
   end
 
   factory :organization do
-    name "Sojourner House"
+    sequence(:name) { |n| "Sojourner House #{n}" }
     address "85 Rockland Street"
     city "Roxbury"
     state "Massachusetts"
@@ -30,5 +30,22 @@ FactoryGirl.define do
   factory :organizer do
     user
     organization
+  end
+
+  factory :item do
+    name "Hand Warmers"
+    quantity 50
+    url "http://amzn.com/B01114JFYA"
+    description "Any brand is fine."
+    organization
+    status "Requested"
+
+    factory :raincoat do
+      name "Raincoat"
+      quantity 12
+      url "http://amzn.com/B002ETVLZ8"
+      description "The linked poncho is a higher quality material,
+                    and something similar is preferred."
+    end
   end
 end
