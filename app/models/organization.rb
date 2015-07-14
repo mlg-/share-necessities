@@ -10,4 +10,8 @@ class Organization < ActiveRecord::Base
   validates :email, presence: true
 
   mount_uploader :display_photo, DisplayPhotoUploader
+
+  def is_current_user_organizer?(current_user)
+    return true if self.organizers.any? {|o| o[:user_id] == current_user.id}
+  end
 end
