@@ -39,6 +39,8 @@ gem 'kaminari'
 gem 'fog'
 gem 'carrierwave'
 
+# Parallax homepage
+gem 'parallax-rails'
 
 
 group :development, :test do

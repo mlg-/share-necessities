@@ -1045,5 +1045,25 @@
       ]
     },
     "timestamp": 1436825749
+  },
+  "RSpec/Cucumber:77418": {
+    "coverage": {
+    },
+    "timestamp": 1436828866
+  },
+  "RSpec/Cucumber:77417": {
+    "coverage": {
+    },
+    "timestamp": 1436828866
+  },
+  "RSpec/Cucumber:80607": {
+    "coverage": {
+    },
+    "timestamp": 1436829647
+  },
+  "RSpec/Cucumber:80609": {
+    "coverage": {
+    },
+    "timestamp": 1436829647
   }
 }

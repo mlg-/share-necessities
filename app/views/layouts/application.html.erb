@@ -3,6 +3,7 @@
 <head>
   <title>ShareNecessities</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag 'application', "http://fonts.googleapis.com/css?family=Quattrocento+Sans" %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "vendor/modernizr" %>
@@ -37,13 +38,13 @@
       </div>
     <%- end -%>
 
-  <div class="row">
+<!--   <div class="row">
     <div class="small-12 columns">
-
+ -->
       <%= yield %>
 
-    </div>
-  </div>
+<!--     </div>
+  </div> -->
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
