@@ -5,7 +5,6 @@ feature "Organizer can delete wishlist items", %{
   I want to delete items from my wishlist
   Because we don’t need them anymore
 } do
-
   # Acceptance criteria
   # [ ] Item can be deleted by organizer
   # [ ] Organizer cannot delete another organization’s wishlist items
@@ -40,6 +39,4 @@ feature "Organizer can delete wishlist items", %{
     expect(page).to have_content(item_1.name)
     expect(page).to_not have_content("Delete")
   end
-
-
 end
