@@ -22,7 +22,7 @@ feature "organizer can edit wishlist item for organization", %{
 
     expect(page).to have_content(item_1.name)
     expect(page).to have_content(item_2.name)
-    click_link("item-#{item_1.id}")
+    click_link("item-#{item_1.id}-edit")
 
     expect(page).to have_content("Edit Hand Warmers on
                                  #{organization.name}'s Wishlist")
@@ -40,7 +40,7 @@ feature "organizer can edit wishlist item for organization", %{
 
     expect(page).to have_content(item_1.name)
     expect(page).to have_content(item_2.name)
-    click_link("item-#{item_1.id}")
+    click_link("item-#{item_1.id}-edit")
 
     fill_in("Quantity", with: 100)
     click_button("Update Item")

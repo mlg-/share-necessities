@@ -34,6 +34,7 @@
         <td width="50">Link</td>
         <% if @organization.organizer?(current_user) %>
           <td width="50">Edit</td>
+          <td width="50">Delete</td>
         <% end %>
       </tr>
       </th>
@@ -53,7 +54,8 @@
           <td></td>
         <% end %>
         <% if @organization.organizer?(current_user) %>
-          <td><%= link_to "Edit", edit_organization_item_path(organization_id: @organization.id, item_id: item.id), id: "item-#{item.id}" %></td>
+          <td><%= link_to "Edit", edit_organization_item_path(organization_id: @organization.id, item_id: item.id), id: "item-#{item.id}-edit" %></td>
+          <td><%= link_to "Delete", organization_item_path(organization_id: @organization.id, id: item.id), id: "item-#{item.id}-delete", method: :delete %></td>
         <% end %>
         </tr>
       <% end %>
