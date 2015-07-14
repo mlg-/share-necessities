@@ -5,7 +5,7 @@ class RemoveStatuses < ActiveRecord::Migration
 
   def down
     create_table :statuses do |t|
-      t.string :title, null:false
+      t.string :title, null: false
     end
   end
 end

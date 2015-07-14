@@ -8,8 +8,9 @@ feature "organizer can request item for organization", %{
   # Acceptance Criteria
   # [ ] Organizer can add items to their wishlist using a form.
   # [ ] The item is now visible from the organization’s wishlist page.
-  # [ ] A volunteer user or visitor can see the item, date added, quantity needed,
-  #     and an optional url and description for more information about the item.
+  # [ ] A volunteer user or visitor can see the item,
+  #     date added, quantity needed, and an optional
+  #     url and description for more information about the item.
 
   scenario "Organizer can navigate to form for adding new items directly" do
     organizer = FactoryGirl.create(:organizer)
@@ -34,7 +35,8 @@ feature "organizer can request item for organization", %{
 
     click_link("Add Items to Wishlist")
 
-    expect(page).to have_content("Add a New Item to #{organization.name}\'s Wishlist")
+    expect(page).to have_content("Add a New Item to
+                                #{organization.name}\'s Wishlist")
     find_field("Name")
     find_field("Quantity")
     find_field("Description")
