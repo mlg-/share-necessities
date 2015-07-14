@@ -1065,5 +1065,15 @@
     "coverage": {
     },
     "timestamp": 1436829647
+  },
+  "RSpec/Cucumber:81461": {
+    "coverage": {
+    },
+    "timestamp": 1436832538
+  },
+  "RSpec/Cucumber:81460": {
+    "coverage": {
+    },
+    "timestamp": 1436832538
   }
 }
