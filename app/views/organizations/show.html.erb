@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<% if @organization.is_current_user_organizer?(current_user) %>
+<% if @organization.organizer?(current_user) %>
   <div class="row">
     <%= link_to "Add Items to Wishlist", new_organization_item_path(organization_id: @organization.id) %>
   </div>
