@@ -1,17 +1,55 @@
-<h1><%= @organization.name %></h1>
-<div>
-  <%= image_tag(@organization.display_photo) %>
-  <%= @organization.address %>
-  <%= @organization.city %>
-  <%= @organization.state %>
-  <%= @organization.zip %>
-  <%= @organization.phone %>
-  <%= @organization.email %>
+<div class="row">
+  <h1><%= @organization.name %></h1>
+  <div>
+    <%= image_tag(@organization.display_photo) %>
+    <%= @organization.address %>
+    <%= @organization.city %>
+    <%= @organization.state %>
+    <%= @organization.zip %>
+    <%= @organization.phone %>
+    <%= @organization.email %>
+  </div>
+  <div>
+    <%= @organization.description %>
+    <%= link_to "Website <i class=\"fa fa-external-link\"></i>".html_safe,
+     @organization.url %>
+    <%= @organization.delivery_instructions %>
+  </div>
 </div>
-<div>
-  <%= @organization.description %>
-  <%= link_to "Website <i class=\"fa fa-external-link\"></i>".html_safe,
-   @organization.url %>
-  <%= @organization.delivery_instructions %>
-</div>
+
+<% if @organization.organizer?(current_user) %>
+  <div class="row">
+    <%= link_to "Add Items to Wishlist", new_organization_item_path(organization_id: @organization.id) %>
+  </div>
+<% end %>
+
+<div class="row">
+  <h2>All Wishlist Items</h2>
+  <table>
+    <thead>
+      <tr>
+        <td>Item Name</td>
+        <td>Quantity</td>
+        <td>Description</td>
+        <td>Link</td>
+      </tr>
+      </thead>
+      <%= @organization.items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.quantity %></td>
+        <% if item.description %>
+          <td><%= item.description %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <% if item.url %>
+          <td><%= link_to item.url %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        </tr>
+      <% end %>
+  </table>
+</div> <!--close parent row-->
 
