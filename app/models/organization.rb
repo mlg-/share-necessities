@@ -11,7 +11,7 @@ class Organization < ActiveRecord::Base
 
   mount_uploader :display_photo, DisplayPhotoUploader
 
-  def organizer?(current_user)
-    return true if organizers.any? { |o| o[:user_id] == current_user.id }
+  def organizer?(user)
+    return true if organizers.any? { |o| o[:user_id] == user.id }
   end
 end

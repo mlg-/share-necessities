@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :organizations, only: [:new, :create, :show, :edit, :update] do
-    resources :items, only: [:new, :create]
+    resources :items, only: [:new, :create, :edit, :update, :destroy]
   end
 end
