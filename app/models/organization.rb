@@ -11,6 +11,8 @@ class Organization < ActiveRecord::Base
 
   mount_uploader :display_photo, DisplayPhotoUploader
 
+  paginates_per 20
+
   def organizer?(user)
     return true if organizers.any? { |o| o[:user_id] == user.id }
   end
