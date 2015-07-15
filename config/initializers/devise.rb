@@ -102,6 +102,7 @@ Devise.setup do |config|
   # config.pepper = 'aee99535df22084ef3236a15832f162995a9cfa62fc5eee044ffb90065071c623efd8eaa31db602d043453ce4926ae75c56506027e30b5544d5d94f42273419c'
 
   # ==> Configuration for :invitable
+  require 'devise_invitable'
   config.invite_for = 2.weeks
 
   # Number of invitations users can send.

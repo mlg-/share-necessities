@@ -1,5 +1,8 @@
 <div class="row">
   <h1><%= @organization.name %></h1>
+  <% if @organization.organizer?(current_user) %>
+    <%= link_to "Edit Organization Settings", edit_organization_path(@organization.id) %>
+  <% end %>
   <div>
     <%= image_tag(@organization.display_photo) %>
     <%= @organization.address %>

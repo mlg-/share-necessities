@@ -8,13 +8,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :profile_photo
-    devise_parameter_sanitizer.for(:account_update) << :profile_photo
-    devise_parameter_sanitizer.for(:sign_up) << :first_name
-    devise_parameter_sanitizer.for(:sign_up) << :last_name
-    devise_parameter_sanitizer.for(:sign_up) << :bio
-    devise_parameter_sanitizer.for(:account_update) << :first_name
-    devise_parameter_sanitizer.for(:account_update) << :last_name
-    devise_parameter_sanitizer.for(:account_update) << :bio
+    devise_parameter_sanitizer.for(:sign_up).concat [:first_name, :last_name, :bio, :profile_photo]
+    devise_parameter_sanitizer.for(:account_update).concat [:first_name, :last_name, :bio, :profile_photo]
+    devise_parameter_sanitizer.for(:invite).concat [:first_name, :last_name]
+    devise_parameter_sanitizer.for(:accept_invitation).concat [:first_name, :last_name]
   end
 end
