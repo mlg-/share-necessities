@@ -107,4 +107,3 @@ feature "Organizer can invite other organizers to their org", %{
     expect(organization.organizers.count).to eq(2)
   end
 end
-
