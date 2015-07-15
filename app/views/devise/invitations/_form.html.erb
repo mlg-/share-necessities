@@ -14,5 +14,7 @@
   <%= f.text_field field %></p>
 <% end -%>
 
+  <%= f.hidden_field :invited_by_organization_id, value: params[:id] %>
+
   <p><%= f.submit t("devise.invitations.new.submit_button"), class: "button" %></p>
 <% end %>
