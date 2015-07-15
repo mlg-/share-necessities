@@ -1,6 +1,10 @@
 class OrganizationsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  def index
+    @organizations = Organization.all.order(:name).page params[:page]
+  end
+
   def new
     @organization = Organization.new
   end
