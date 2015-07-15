@@ -74,4 +74,5 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'coveralls', require: false
 gem 'devise'
+gem 'devise_invitable'
 gem 'foundation-rails'

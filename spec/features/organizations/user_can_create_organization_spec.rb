@@ -43,7 +43,7 @@ feature 'user can create an organization and become an organizer', %{
     fill_in("Phone", with: "617-442-9322")
     fill_in("Email", with: "rosie@mailinator.com")
     fill_in("Url", with: "http://www.rosiesplace.org/")
-    attach_file("Display photo",
+    attach_file("Display Photo/Logo",
                 "#{Rails.root}/spec/support/images/logo_rosiesplace.png")
     fill_in("Delivery instructions", with: "You can drop off donations to
                                      Rosie's Place Monday through Friday, from

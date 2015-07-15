@@ -1,3 +1,9 @@
-<h1>Edit <%= @organization.name %>'s Information</h1>
+<div class="row">
+  <h1>Edit <%= @organization.name %>'s Information and Settings</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
+
+  <h2>Invite Organizers</h2>
+
+  <%= render 'invite_form' %>
+</div>

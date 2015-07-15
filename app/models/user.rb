@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  mount_uploader :profile_photo, ProfilePhotoUploader
 
   def self.organizer?(user)
     return true unless Organizer.where(user_id: user.id).empty?
