@@ -4,18 +4,22 @@
   background-size: cover;
   margin-top: -3px;
   min-height: 98%;
+
   .i-am h2 {
     border: 6px solid #5F0057;
   }
+
   h2 {
     color: #73003A;
     background-color: white;
     opacity: 0.8;
     text-align: center;
     border: 1px solid #ccc;
+
     a {
       color: #5F0057;
     }
+    
     a:hover {
       color: #408CAD;
     }
@@ -25,6 +29,7 @@
 .headline-box {
   padding: 30% 25% 18%;
   text-shadow: 2px 2px #033E58;
+
   h1 {
     color: #FFE056;
     font-size: 3em;
@@ -33,13 +38,15 @@
 
 @media (max-width: 1000px){
   .homepage-container {
+
     h2 {
       font-size: 1.5em;
     }
   }
-  
+
   .headline-box {
     padding: 40% 18%;
+
     h1 {
       font-size: 2.5em;
     }
