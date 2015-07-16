@@ -18,8 +18,9 @@ class DibsController < ApplicationController
       flash[:error] = "Please specify a quantity."
       render "organizations/show"
     elsif @dib.quantity > @item.quantity
-      flash[:notice] = "Please specify an amount less than or equal to the total needed."
-      redirect_to organization_path(id: @organization.id)
+      flash[:notice] = %{Please specify an amount less than or
+                         equal to the total needed.}
+      render "organizations/show"
     else @dib.save
       @item.update(quantity: @item.quantity - @dib.quantity)
       flash[:notice] = %{Thanks so much! You can see all your promised items

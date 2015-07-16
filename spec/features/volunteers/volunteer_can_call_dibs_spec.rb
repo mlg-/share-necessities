@@ -7,8 +7,8 @@ feature "Volunteer can promise an item when logged in", %{
 } do
 
   # Acceptance Criteria
-  # [X] Volunteer can select multiple items and see all with delivery instructions
-  #     under "My Items" tab.
+  # [X] Volunteer can select multiple items and see all with delivery
+  #      instructions under "My Items" tab.
   # [X] Items can be from any organization.
   # [X] Volunteer must specify quantity.
   # [X] Volunteer quantity cannot exceed amount requested.
@@ -25,7 +25,8 @@ feature "Volunteer can promise an item when logged in", %{
 
     click_button("I'll get this!")
 
-    expect(page).to have_content("You need to sign in or sign up to use this feature.")
+    expect(page).to have_content("You need to sign in or sign up to use this
+                                 feature.")
   end
 
   scenario "Volunteer can promise an item when logged in" do
@@ -40,8 +41,9 @@ feature "Volunteer can promise an item when logged in", %{
     fill_in("Quantity", with: 1)
     click_button("I'll get this!")
 
-    expect(page).to have_content("Thanks so much! You can see all your promised items
-                                  and delivery instructions in \"My Items\" above.")
+    expect(page).to have_content("Thanks so much! You can see all your promised
+                                  items and delivery instructions in
+                                  \"My Items\" above.")
     expect(User.find(volunteer.id).dibs.count).to eq(1)
     expect(page).to have_content("My Items (1)")
   end
@@ -49,7 +51,7 @@ feature "Volunteer can promise an item when logged in", %{
   scenario "Volunteer must specify a quantity" do
     organization = FactoryGirl.create(:organization)
     volunteer = FactoryGirl.create(:user)
-    item = FactoryGirl.create(:item, organization: organization)
+    FactoryGirl.create(:item, organization: organization)
 
     sign_in_as(volunteer)
 
@@ -83,7 +85,6 @@ feature "Volunteer can promise an item when logged in", %{
   scenario "Volunteer can promise items for different organizations" do
     organization = FactoryGirl.create(:organization)
     organization_2 = FactoryGirl.create(:organization)
-    organization = FactoryGirl.create(:organization)
     volunteer = FactoryGirl.create(:user)
     item_1 = FactoryGirl.create(:item, organization: organization)
     item_2 = FactoryGirl.create(:item, organization: organization_2)
@@ -103,7 +104,7 @@ feature "Volunteer can promise an item when logged in", %{
     expect(page).to have_content(organization_2.name)
   end
 
-  scenario "When volunteer promises items, quantity needed updates on wishlist" do
+  scenario "Quantity needed updates on wishlist" do
     organization = FactoryGirl.create(:organization)
     item = FactoryGirl.create(:item, organization: organization)
     volunteer = FactoryGirl.create(:user)
@@ -135,7 +136,7 @@ feature "Volunteer can promise an item when logged in", %{
     fill_in("Quantity", with: exceeds_quantity)
     click_button("I'll get this!")
 
-    expect(page).to have_content("Please specify an amount less than or equal to the total needed.")
+    expect(page).to have_content("Please specify an amount less
+                                  than or equal to the total needed.")
   end
-
 end
