@@ -45,10 +45,25 @@ gem 'parallax-rails'
 # Web Server
 gem 'puma'
 
-gem 'rails_12factor', group: :production
+# Heroku assets
+gem 'rails_12factor'
 
 # ERD
-gem "rails-erd"
+'rails-erd'
+
+# Google Maps
+gem 'gmaps4rails'
+gem 'underscore-rails'
+
+# Test coverage reporting
+gem 'coveralls', require: false
+
+# User authentication & invitations
+gem 'devise'
+gem 'devise_invitable'
+
+# CSS & JS framework
+gem 'foundation-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,15 +79,10 @@ group :development, :test do
   gem 'dotenv-rails'
 
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl'
+  gem 'valid_attribute'
+  gem 'shoulda-matchers'
 end
-
-gem 'rspec-rails', group: [:development, :test]
-gem 'capybara', group: [:development, :test]
-gem 'launchy', group: [:development, :test]
-gem 'factory_girl', group: [:development, :test]
-gem 'valid_attribute', group: [:development, :test]
-gem 'shoulda-matchers', group: [:development, :test], require: false
-gem 'coveralls', require: false
-gem 'devise'
-gem 'devise_invitable'
-gem 'foundation-rails'

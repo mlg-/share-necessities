@@ -1,24 +1,28 @@
 <div class="row">
-  <h1><%= @organization.name %></h1>
-  <% if @organization.organizer?(current_user) %>
-    <%= link_to "Edit Organization Settings", edit_organization_path(@organization.id) %>
-  <% end %>
-  <div>
-    <%= image_tag(@organization.display_photo) %>
-    <%= @organization.address %><br/>
-    <%= @organization.city %>,
-    <%= @organization.state %>
-    <%= @organization.zip %><br/>
-    <%= @organization.phone %>
-    <%= @organization.email %>
+  <div class="small-6">
+    <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
-  <div>
-    <%= @organization.description %>
-    <%= link_to "Website <i class=\"fa fa-external-link\"></i>".html_safe,
-     @organization.url %>
-    <%= @organization.delivery_instructions %>
+  <div class="small-6">
+    <h1><%= @organization.name %></h1>
+    <% if @organization.organizer?(current_user) %>
+      <%= link_to "Edit Organization Settings", edit_organization_path(@organization.id) %>
+    <% end %>
+    <div>
+      <%= image_tag(@organization.display_photo) %>
+      <%= @organization.address %><br/>
+      <%= @organization.city %>,
+      <%= @organization.state %>
+      <%= @organization.zip %><br/>
+      <%= @organization.phone %>
+      <%= @organization.email %>
+    </div>
+    <div>
+      <%= @organization.description %>
+      <%= link_to "Website <i class=\"fa fa-external-link\"></i>".html_safe,
+       @organization.url %>
+      <%= @organization.delivery_instructions %>
+    </div>
   </div>
-</div>
 
 <% if @organization.organizer?(current_user) %>
   <div class="row">
@@ -35,6 +39,7 @@
         <td width="50">Quantity</td>
         <td width="200">Description</td>
         <td width="50">Link</td>
+        <td width="75">Get It</td>
         <% if @organization.organizer?(current_user) %>
           <td width="50">Edit</td>
           <td width="50">Delete</td>
@@ -56,6 +61,7 @@
         <% else %>
           <td></td>
         <% end %>
+        <td><%= button_to "I'll get this!", item_dibs_path(item_id: item.id) %></td>
         <% if @organization.organizer?(current_user) %>
           <td><%= link_to "Edit", edit_organization_item_path(organization_id: @organization.id, item_id: item.id), id: "item-#{item.id}-edit" %></td>
           <td><%= link_to "Delete", organization_item_path(organization_id: @organization.id, id: item.id), id: "item-#{item.id}-delete", method: :delete %></td>
