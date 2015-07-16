@@ -5,11 +5,11 @@ feature "Volunteer can cancel their dibs on an item", %{
   I want to cancel my fulfillment of an item
   Because I couldn’t find what the organization needed
 } do
-
   # Acceptance Criteria
   # [X] Volunteer can cancel any of their items
   # [X] Volunteer must be signed in
-  # [X] The item must be returned to the organization’s wishlist and visible on the page
+  # [X] The item must be returned to the organization’s wishlist
+  #      and visible on the page
   # [X] The item must no longer appear in the volunteer’s items
 
   scenario "Volunteer must be signed in to cancel dibs" do
@@ -46,7 +46,5 @@ feature "Volunteer can cancel their dibs on an item", %{
     expect(page).to have_content(item.name)
     expect(page).to have_content(item.quantity)
     expect(page).to_not have_content(item.quantity - 1)
-
   end
-  # scenario ""
 end
