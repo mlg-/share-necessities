@@ -31,7 +31,7 @@ feature "Volunteer can promise an item when logged in", %{
 
   scenario "Volunteer can promise an item when logged in" do
     organization = FactoryGirl.create(:organization)
-    item = FactoryGirl.create(:item, organization: organization)
+    FactoryGirl.create(:item, organization: organization)
     volunteer = FactoryGirl.create(:user)
 
     sign_in_as(volunteer)
