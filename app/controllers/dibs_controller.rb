@@ -36,6 +36,18 @@ class DibsController < ApplicationController
     @dibs = Dib.where(user_id: current_user)
   end
 
+  def destroy
+    @dib = Dib.find(params[:id])
+    @item = Item.find(params[:item_id])
+    @dib.destroy
+    organization = @item.organization
+    new_total_needed = @item.quantity + @dib.quantity
+    @item.update(quantity: new_total_needed)
+    flash[:notice] = "This item has been removed from your list and returned
+                      to #{organization.name}'s wishlist."
+    redirect_to dibs_path
+  end
+
   protected
 
   def dib_params
