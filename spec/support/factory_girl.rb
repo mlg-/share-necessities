@@ -38,7 +38,6 @@ FactoryGirl.define do
     url "http://amzn.com/B01114JFYA"
     description "Any brand is fine."
     organization
-    status "Requested"
 
     factory :raincoat do
       name "Raincoat"
@@ -47,5 +46,12 @@ FactoryGirl.define do
       description "The linked poncho is a higher quality material,
                     and something similar is preferred."
     end
+  end
+
+  factory :dib do
+    user
+    item
+    quantity 2
+    status "Promised"
   end
 end

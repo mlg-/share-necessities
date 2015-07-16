@@ -5,5 +5,4 @@ class Item < ActiveRecord::Base
   validates :name, presence: true
   validates :quantity, presence: true
   validates :organization, presence: true
-  validates :status, presence: true
 end

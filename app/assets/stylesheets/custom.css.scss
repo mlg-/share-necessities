@@ -1,6 +1,4 @@
-img {
-  max-width: none;
-}
+// Landing page
 
 .homepage-container {
   background-image: image-url('coffee.jpg');
@@ -56,3 +54,19 @@ img {
     }
   }
 }
+
+// Organization details page
+// Google maps
+
+img {
+  max-width: none;
+}
+
+td.got-it {
+  border-left: 2px solid black;
+}
+
+.got-it form, form div {
+  display: inline !important;
+}
+

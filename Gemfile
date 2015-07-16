@@ -45,11 +45,8 @@ gem 'parallax-rails'
 # Web Server
 gem 'puma'
 
-# Heroku assets
-gem 'rails_12factor'
-
 # ERD
-'rails-erd'
+gem 'rails-erd'
 
 # Google Maps
 gem 'gmaps4rails'
@@ -64,6 +61,11 @@ gem 'devise_invitable'
 
 # CSS & JS framework
 gem 'foundation-rails'
+
+group :production do
+  # Heroku assets
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
