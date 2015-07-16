@@ -114,6 +114,9 @@ $include-html-global-classes: $include-html-classes;
 // $oil         : #333333;
 // $jet         : #222222;
 // $black       : #000000;
+ $share-purple: #AD1BA1;
+ $share-dark-blue: #033E58;
+ $share-yellow: #FED728;
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;
@@ -464,7 +467,7 @@ $header-font-family: 'Quattrocento Sans', sans-serif;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: $share-purple;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -1400,7 +1403,7 @@ $header-font-family: 'Quattrocento Sans', sans-serif;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
+$topbar-bg-color: $share-dark-blue;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1412,7 +1415,7 @@ $header-font-family: 'Quattrocento Sans', sans-serif;
 // $topbar-title-font-size: rem-calc(17);
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: $white;
+// $topbar-link-color: #FFE056;
 // $topbar-link-color-hover: $white;
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;

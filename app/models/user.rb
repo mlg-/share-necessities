@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :organizers
   has_many :organizations, through: :organizers
-  has_many :items
+  has_many :dibs
+  has_many :items, through: :dibs
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

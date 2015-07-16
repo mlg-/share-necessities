@@ -200,6 +200,7 @@ GEM
       sass (>= 3.3.0, < 3.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -344,6 +345,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.8.3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
@@ -374,6 +376,7 @@ DEPENDENCIES
   fog
   font-awesome-rails
   foundation-rails
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
@@ -391,5 +394,6 @@ DEPENDENCIES
   shoulda-matchers
   spring
   uglifier (>= 1.3.0)
+  underscore-rails
   valid_attribute
   web-console (~> 2.0)

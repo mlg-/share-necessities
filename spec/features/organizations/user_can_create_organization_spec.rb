@@ -82,7 +82,7 @@ feature 'user can create an organization and become an organizer', %{
   scenario "user cannot create an organization without logging in" do
     visit new_organization_path
 
-    expect(page).to have_content("You need to sign in or sign up
-                                 before continuing.")
+    expect(page).to have_content("You need to sign in or sign up to use this
+                                  feature.")
   end
 end

@@ -1,0 +1,10 @@
+<h1>My Promised Items</h1>
+<ul>
+<% @dibs.each do |dib| %>
+  <li><%= dib.quantity %> <%= dib.item.name %> for <%= link_to dib.item.organization.name, organization_path(dib.item.organization.id) %>.<br/>
+   Address: <%= dib.item.organization.address %><br/>
+   <%= dib.item.organization.city %>, <%= dib.item.organization.state %> <%= dib.item.organization.zip %><br/>
+   Delivery instructions: <%= dib.item.organization.delivery_instructions %>
+  </li>
+  <% end %>
+</ul>
