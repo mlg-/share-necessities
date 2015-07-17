@@ -1,7 +1,7 @@
 <div class="row">
   <h1>Edit <%= @organization.name %>'s Information and Settings</h1>
 
-  <%= render 'form' %>
+  <%= render partial: "form", locals: {organization: @organization} %>
 
   <h2>Invite Organizers</h2>
 

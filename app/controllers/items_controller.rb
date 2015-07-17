@@ -2,6 +2,12 @@ class ItemsController < ApplicationController
   before_filter :require_login
   before_filter :org_admin?
 
+  def index
+    @organization = params[:organization_id]
+    @items = Item.where(organization: params[:organization_id])
+    @dibs = Dib.dibs_list(@items)
+  end
+
   def new
     @item = Item.new
     @organization = Organization.find(params[:organization_id])

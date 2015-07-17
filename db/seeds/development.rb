@@ -13,3 +13,12 @@ Organization.all.each do |org|
                  organization_id: org.id)
   end
 end
+
+rosie = Organization.where(name: "Rosie's Place").first
+organizer = User.create!(email: "organizer@mailinator.com",
+                         password: "password",
+                         created_at: Time.now,
+                         updated_at: Time.now,
+                         first_name: "Barry",
+                         last_name: "Nyes")
+Organizer.create!(organization_id: rosie.id, user_id: organizer.id)

@@ -1,74 +1,74 @@
 <div class="row">
-  <div class="small-6">
-    <div id="map"></div>
-  </div>
-  <div class="small-6">
-    <h1><%= @organization.name %></h1>
-    <% if @organization.organizer?(current_user) %>
-      <%= link_to "Edit Organization Settings", edit_organization_path(@organization.id) %>
-    <% end %>
-    <div>
-      <%= image_tag(@organization.display_photo) %>
-      <%= @organization.address %><br/>
-      <%= @organization.city %>,
-      <%= @organization.state %>
-      <%= @organization.zip %><br/>
-      <%= @organization.phone %>
-      <%= @organization.email %>
-    </div>
-    <div>
-      <%= @organization.description %>
-      <%= link_to "Website <i class=\"fa fa-external-link\"></i>".html_safe,
-       @organization.url %>
-      <%= @organization.delivery_instructions %>
-    </div>
+  <div class="small-6 columns top-margin">
+    <%= image_tag(@organization.display_photo) %><br/>
+    <%= link_to "Website <i class=\"fa fa-external-link\"></i>".html_safe,
+     @organization.url, class: "external-link" %><br/>
   </div>
 
-<% if @organization.organizer?(current_user) %>
-  <div class="row">
-    <%= link_to "Add Items to Wishlist", new_organization_item_path(organization_id: @organization.id) %>
+  <div class="small-6 columns top-margin">
+  <h1><%= @organization.name %></h1>
+  <h2>Contact Information</h2>
+    <%= @organization.address %><br/>
+    <%= @organization.city %>,
+    <%= @organization.state %>
+    <%= @organization.zip %><br/>
+    <%= @organization.phone %><br/>
+    <%= @organization.email %><br/>
+    <%= @organization.description %></br>
+    <%= @organization.delivery_instructions %>
+    <% if @organization.organizer?(current_user) %>
+      <a href="#" class="button medium split organizer-info">Organizer Menu<span data-dropdown="drop"></span></a><br>
+      <ul id="drop" class="f-dropdown" data-dropdown-content>
+        <li><%= link_to "Edit Organization Settings", edit_organization_path(@organization.id) %></li>
+        <li><%= link_to "Add Items to Wishlist", new_organization_item_path(organization_id: @organization.id) %></li>
+        <li><%= link_to "See Incoming Items", organization_items_path(@organization.id) %></li>
+      </ul>
+    <% end %>
+
   </div>
-<% end %>
+</div>
 
 <div class="row">
-  <h2>All Wishlist Items</h2>
-  <table>
-    <th>
-      <tr>
-        <td width="150">Item Name</td>
-        <td width="50">Quantity</td>
-        <td width="200">Description</td>
-        <td width="50">Link</td>
-        <td width="100">Get It</td>
-        <% if @organization.organizer?(current_user) %>
-          <td width="50">Edit</td>
-          <td width="50">Delete</td>
-        <% end %>
-      </tr>
-      </th>
-      <% @organization.items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= item.quantity %></td>
-        <% if item.description %>
-          <td><%= item.description %></td>
-        <% else %>
-          <td></td>
-        <% end %>
-        <% if item.url %>
-          <td><%= link_to "<i class=\"fa fa-external-link\"></i>".html_safe,
-           item.url %></td>
-        <% else %>
-          <td></td>
-        <% end %>
-        <td class="got-it"><%= render partial: "dibs/form", locals: { item: item,
-         dib: @dib, method: :create, organization_id: @organization.id } %></td>
-        <% if @organization.organizer?(current_user) %>
-          <td><%= link_to "Edit", edit_organization_item_path(organization_id: @organization.id, item_id: item.id), id: "item-#{item.id}-edit" %></td>
-          <td><%= link_to "Delete", organization_item_path(organization_id: @organization.id, id: item.id), id: "item-#{item.id}-delete", method: :delete %></td>
-        <% end %>
+  <div class="small-12 columns wishlist">
+    <h2>All Wishlist Items</h2>
+    <table>
+      <th>
+        <tr>
+          <td width="150">Item Name</td>
+          <td width="50">Quantity</td>
+          <td width="200">Description</td>
+          <td width="50">Link</td>
+          <td width="80" class="got-it">Get It</td>
+          <% if @organization.organizer?(current_user) %>
+            <td width="50">Edit</td>
+            <td width="50">Delete</td>
+          <% end %>
         </tr>
-      <% end %>
-  </table>
+        </th>
+        <% @organization.items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.quantity %></td>
+          <% if item.description %>
+            <td><%= item.description %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          <% if item.url %>
+            <td><%= link_to "<i class=\"fa fa-external-link\"></i>".html_safe,
+             item.url %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          <td class="got-it"><%= render partial: "dibs/form", locals: { item: item,
+           dib: @dib, method: :create, organization_id: @organization.id } %></td>
+          <% if @organization.organizer?(current_user) %>
+            <td><%= link_to "Edit", edit_organization_item_path(organization_id: @organization.id, item_id: item.id), id: "item-#{item.id}-edit" %></td>
+            <td><%= link_to "Delete", organization_item_path(organization_id: @organization.id, id: item.id), id: "item-#{item.id}-delete", method: :delete %></td>
+          <% end %>
+          </tr>
+        <% end %>
+    </table>
+  </div>
 </div> <!--close parent row-->
 

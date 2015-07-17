@@ -1,0 +1,12 @@
+<h1><%= Organization.find(@organization).name %>'s Incoming Items</h1>
+<% if @dibs.empty? %>
+  <p>No incoming items.</p>
+<% else %>
+  <ul>
+    <% @dibs.each do |dib| %>
+      <li><%= dib[:quantity] %> <%= dib[:name] %> from <%= dib[:volunteer] %>
+       on <%= dib[:date] %></li>
+    <% end %>
+  </ul>
+<% end %>
+

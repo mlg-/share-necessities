@@ -12,7 +12,8 @@
  *
  *= require_self
  *= require foundation_and_overrides
- *= require custom
+ *= require font-awesome
  *= require animate
+ *= require custom
 
  */
