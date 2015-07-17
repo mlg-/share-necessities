@@ -10,9 +10,11 @@ class Dib < ActiveRecord::Base
     all_dibs = []
     items.each do |item|
       unless item.dib.nil?
-        binding.pry
         dib = {}
-        dib[item] = Dib.where(item: item).first
+        dib[:name] = item.name
+        dib[:quantity] = item.dib.quantity
+        dib[:volunteer] = User.find(item.dib.user_id).first_name
+        dib[:date] = item.dib.created_at.strftime("%B %d, %Y")
         all_dibs << dib
       end
     end

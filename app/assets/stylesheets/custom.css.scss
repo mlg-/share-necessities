@@ -56,10 +56,10 @@
 }
 
 // Organization details page
-// Google maps
 
 img {
   max-width: none;
+  margin: 2em;
 }
 
 .got-it {
@@ -68,5 +68,22 @@ img {
 
 .got-it form, form div {
   display: inline !important;
+}
+
+.organizer-info {
+  margin-top: 2em;
+}
+
+.wishlist {
+  margin-top: 1.5em;
+}
+
+.top-margin {
+  margin-top: 3em;
+}
+
+.external-link {
+  font-size: 1.2em;
+  text-align: center;
 }
 
