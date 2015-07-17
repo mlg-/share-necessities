@@ -1,0 +1,7 @@
+<h1><%= @organization.name %>'s Incoming Items %></h1>
+<ul>
+  <% @dibs.each do |item, dib| %>
+    <li><%= dib[:quantity] %> <%= item[:name] %> from <%= dib.user.name %></li>
+  <% end %>
+</ul>
+

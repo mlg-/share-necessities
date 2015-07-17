@@ -34,8 +34,8 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    @organization = Organization.new(organization_params)
-    if @organization.save
+    @organization = Organization.find(params[:id])
+    if @organization.update(organization_params)
       flash[:notice] = "Your organization has been updated."
       redirect_to organization_path(@organization)
     else
