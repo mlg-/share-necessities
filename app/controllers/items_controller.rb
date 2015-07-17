@@ -3,9 +3,9 @@ class ItemsController < ApplicationController
   before_filter :org_admin?
 
   def index
-    @organization = params[:organization_id]
+    @organization = Organization.find(params[:organization_id])
     @items = Item.where(organization: params[:organization_id])
-    @dibs = Dib.dibs_list(@items)
+    @incoming_dibs = Dib.incoming_dibs_list(@items)
   end
 
   def new

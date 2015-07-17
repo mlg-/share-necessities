@@ -1,11 +1,15 @@
-<h1>My Promised Items</h1>
+<h1>My Items</h1>
 <ul>
 <% @dibs.each do |dib| %>
   <li><%= dib.quantity %> <%= dib.item.name %> for <%= link_to dib.item.organization.name, organization_path(dib.item.organization.id) %>.<br/>
-   Address: <%= dib.item.organization.address %><br/>
-   <%= dib.item.organization.city %>, <%= dib.item.organization.state %> <%= dib.item.organization.zip %><br/>
-   Delivery instructions: <%= dib.item.organization.delivery_instructions %><br/>
-   <%= button_to "I can no longer provide this item.", item_dib_path(item_id: dib.item.id, id:dib.id), method: :delete, class: "button alert small" %>
+  <% if dib.status == "Received" %>
+    <p class="success">This item has been received. Thank you!</p>
+  <% else %>
+    Address: <%= dib.item.organization.address %><br/>
+    <%= dib.item.organization.city %>, <%= dib.item.organization.state %> <%= dib.item.organization.zip %><br/>
+    Delivery instructions: <%= dib.item.organization.delivery_instructions %><br/>
+    <li><%= button_to "I can no longer provide this item.", item_dib_path(item_id: dib.item.id, id:dib.id), method: :delete, class: "button alert small" %>
   </li>
   <% end %>
+<% end %>
 </ul>

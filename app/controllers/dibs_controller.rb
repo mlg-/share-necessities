@@ -30,6 +30,16 @@ class DibsController < ApplicationController
   end
 
   def update
+    @dib = Dib.find(params[:id])
+    @item = Item.find(params[:item_id])
+    @organization = @item.organization
+    if @dib.update(dib_params)
+      flash[:notice] = "This item has been marked as received,
+                         and the provider has been notified."
+      redirect_to organization_items_path(@organization, @item)
+    else
+      flash[:error] = "This item could not be updated."
+    end
   end
 
   def index
@@ -51,6 +61,6 @@ class DibsController < ApplicationController
   protected
 
   def dib_params
-    params.require(:dib).permit(:quantity)
+    params.require(:dib).permit(:quantity, :status)
   end
 end

@@ -1,11 +1,15 @@
-<h1><%= Organization.find(@organization).name %>'s Incoming Items</h1>
-<% if @dibs.empty? %>
+<h1><%= @organization.name %>'s Incoming Items</h1>
+<% if @incoming_dibs.empty? %>
   <p>No incoming items.</p>
 <% else %>
   <ul>
-    <% @dibs.each do |dib| %>
+    <% @incoming_dibs.each do |dib| %>
       <li><%= dib[:quantity] %> <%= dib[:name] %> from <%= dib[:volunteer] %>
-       on <%= dib[:date] %></li>
+       on <%= dib[:date] %>  <%= link_to "Mark Item as Received",
+       item_dib_path(item_id: dib[:item_id], id: dib[:dib_id],
+       dib: {status: "Received"}, organization_id: dib[:organization_id]),
+       method: :patch, class: "button small success" %>
+        </li>
     <% end %>
   </ul>
 <% end %>
