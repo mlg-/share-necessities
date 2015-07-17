@@ -30,7 +30,7 @@ feature "Organizer can see items promised to them by volunteers", %{
 
   scenario "Volunteer promises and then cancels an item" do
     organizer = FactoryGirl.create(:organizer)
-    item = FactoryGirl.create(:item, organization: organizer.organization)
+    FactoryGirl.create(:item, organization: organizer.organization)
     volunteer = FactoryGirl.create(:user)
 
     sign_in_as(volunteer)
