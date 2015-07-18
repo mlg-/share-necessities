@@ -18,12 +18,12 @@
 // Landing page
 
 .headline-box {
-  padding: 25% 25% 18%;
+  padding: 12% 25% 5%;
   text-shadow: 2px 2px #033E58;
 
   h1 {
     color: #FFE056;
-    font-size: 3.2em;
+    font-size: 3em;
   }
 }
 
@@ -32,54 +32,54 @@
   background-position: center center;
   background-size: cover;
   margin-top: -3px;
-  min-height: 98%;
+  min-height: 100%;
 
-  .i-am h2 {
-    border: 6px solid #5F0057;
+  .i-am {
+    font-size: 6em;
+    color: #033E58;
+    background-color: transparent;
+    margin-bottom: 1%;
+    // border: 6px solid #5F0057;
   }
 
   h2 {
-    font-family: 'Quattrocento Sans', sans-serif;
-    color: #73003A;
-    background-color: white;
-    opacity: 0.8;
+    font-family: 'Oswald', sans-serif;
+    background-color: #033E58;
+    opacity: 0.9;
     text-align: center;
-    border: 1px solid #ccc;
+    border-radius: 2em;
+    margin-bottom: 5%;
 
     a {
-      color: #5F0057;
+      color: #FFEFA5;
     }
     
     a:hover {
-      color: #408CAD;
+      color: #fff;
     }
   }
 }
 
 
-@media (min-width: 601px) and (max-width: 1000px){
+@media (min-width: 500px) and (max-width: 1000px){
+  .headline-box {
+    padding: 20% 25% 8%;
+
+    h1 {
+      font-size: 2.2em;
+    }
+  }
+
   .homepage-container {
+    min-height: 98%;
+
+    .i-am {
+      font-size: 5em;
+    }
 
     h2 {
-      font-size: 1.5em;
-    }
-  }
-
-  .headline-box {
-    padding: 19% 25% 10%;
-
-    h1 {
-      font-size: 2.5em;
-    }
-  }
-}
-
-@media (max-width: 500px) and (min-width: 750px){
-  .headline-box {
-    padding: 25% 15% 15%;
-
-    h1 {
-      font-size: 2em;
+      font-size: 1.8em;
+      margin-bottom: 5%;
     }
   }
 }
@@ -98,18 +98,24 @@
     float: none !important;
   }
 
-  .homepage-container {
+  .headline-box {
+    padding: 38% 12% 15%;
 
-    h2 {
-      font-size: 1.2em;
+    h1 {
+      font-size: 2em;
     }
   }
 
-  .headline-box {
-    padding: 45% 15% 35%;
+  .homepage-container {
 
-    h1 {
-      font-size: 1.8em;
+    .i-am {
+      font-size: 4em;
+    }
+
+    h2 {
+      font-size: 1.6em;
+      border-radius: 10px;
+      padding: 10px;
     }
   }
 }
