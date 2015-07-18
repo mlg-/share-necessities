@@ -17,11 +17,16 @@
     <%= @organization.description %></br>
     <%= @organization.delivery_instructions %>
     <% if @organization.organizer?(current_user) %>
-      <a href="#" class="button medium split organizer-info">Organizer Menu<span data-dropdown="drop"></span></a><br>
+      <a href="#" class="button medium split organizer-info">Organizer
+      Menu <i class="fa fa-cogs"></i> <span data-dropdown="drop"></span></a><br>
       <ul id="drop" class="f-dropdown" data-dropdown-content>
-        <li><%= link_to "Edit Organization Settings", edit_organization_path(@organization.id) %></li>
-        <li><%= link_to "Add Items to Wishlist", new_organization_item_path(organization_id: @organization.id) %></li>
-        <li><%= link_to "See Incoming Items", organization_items_path(@organization.id) %></li>
+        <li><%= link_to "Edit Organization Settings",
+                edit_organization_path(@organization.id) %></li>
+        <li><%= link_to "Add Items to Wishlist",
+                new_organization_item_path(organization_id: @organization.id) %>
+        </li>
+        <li><%= link_to "See Incoming Items",
+                organization_items_path(@organization.id) %></li>
       </ul>
     <% end %>
 
@@ -60,11 +65,17 @@
           <% else %>
             <td></td>
           <% end %>
-          <td class="got-it"><%= render partial: "dibs/form", locals: { item: item,
-           dib: @dib, method: :create, organization_id: @organization.id } %></td>
+          <td class="got-it"><%= render partial: "dibs/form",
+          locals: { item: item, dib: @dib, method: :create,
+                    organization_id: @organization.id } %></td>
           <% if @organization.organizer?(current_user) %>
-            <td><%= link_to "Edit", edit_organization_item_path(organization_id: @organization.id, item_id: item.id), id: "item-#{item.id}-edit" %></td>
-            <td><%= link_to "Delete", organization_item_path(organization_id: @organization.id, id: item.id), id: "item-#{item.id}-delete", method: :delete %></td>
+            <td><%= link_to "Edit",
+                edit_organization_item_path(organization_id: @organization.id,
+                item_id: item.id), id: "item-#{item.id}-edit" %></td>
+            <td><%= link_to "Delete",
+                   organization_item_path(organization_id: @organization.id,
+                   id: item.id), id: "item-#{item.id}-delete",
+                   method: :delete %></td>
           <% end %>
           </tr>
         <% end %>

@@ -4,45 +4,16 @@
   <title>ShareNecessities</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', "http://fonts.googleapis.com/css?family=Quattrocento+Sans" %>
+  <%= stylesheet_link_tag 'application', "http://fonts.googleapis.com/css?family=Oswald:300,400" %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "vendor/modernizr" %>
 </head>
 <body>
   
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">ShareNecessities</a></h1>
-      </li>
-    </ul>
+  <%= render "layouts/header" %>
 
-      <section class="top-bar-section">
-            <ul class="right">
-              <%- if current_user -%>
-                <% if User.organizer?(current_user) %>
-                  <li class="has-dropdown">
-                  <a href="#">My Organizations</a>
-                    <ul class="dropdown">
-                      <% Organizer.where(user_id: current_user.id).each do |org| %>
-                        <li><%= link_to org.organization.name, organization_path(id: org.organization.id) %></li>
-                      <% end %>
-                    </ul>
-                  </li>
-                <% end %>
-                <% if !current_user.dibs.empty? %>
-                <li><%= link_to "My Items (#{current_user.dibs.where(status: "Promised").count})", dibs_path %></li>
-                 <% end %>
-                <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-              <%- else -%>
-                <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-                <li><%= link_to 'Sign In', new_user_session_path %></li>
-              <%- end -%>
-            </ul>
-          </section>
-        </nav>
-
-      <%= yield %>
+  <%= yield %>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
