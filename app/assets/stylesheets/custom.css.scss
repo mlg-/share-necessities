@@ -167,8 +167,12 @@ img {
 
 // Organization index
 
-.org-row {
-  // background-color: $share-dark-blue;
+.org-row:nth-child(even) {
+  background-color: $snow;
+}
+
+.org-row:nth-child(odd){
+  background-color: $smoke;
 }
 
 .org-listing {
@@ -176,14 +180,18 @@ img {
 }
 
 .org-name {
-  color: $share-dark-blue;
+  color: $share-green;
   font-size: 1.5em;
 }
 
 .org-photo {
   max-width: 200px;
-  border: 5px solid $share-green;
+  border: 5px solid $share-dark-blue;
   padding: 2px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .org-header {
@@ -200,5 +208,15 @@ img {
     text-shadow: 4px 2px #033E58;
     padding: 2em 2em 0;
 
+  }
+}
+
+@media (max-width: 850px){
+  .org-header{
+
+    h1 {
+      font-size: 4em;
+      padding: 2em 0.5em 0;
+    }
   }
 }

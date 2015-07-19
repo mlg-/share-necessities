@@ -1,17 +1,17 @@
 <div class="small-12 org-header">
   <h1 class="text-center">All Organizations</h1>
 </div>
-<div class="small-8 small-offset-2 columns">
+<div class="small-12 medium-10 medium-offset-1 columns">
     <% @organizations.each do |org| %>
-    <div class="small-12 columns org-row">
-      <div class="small-6 columns">
+    <div class="row org-row">
+      <div class="small-12 medium-6 columns">
       <% if org.display_photo.file.nil? %>
         <%= link_to image_tag("comingsoon.png", class: "org-photo"), organization_path(org.id) %>
       <% else %>
         <%= link_to image_tag(org.display_photo, class: "org-photo"), organization_path(org.id) %>
       <% end %>
       </div>
-      <div class="small-6 columns org-listing">
+      <div class="small-12 medium-6 columns org-listing">
       <%= link_to org.name, organization_path(org.id), class: "org-name" %><br/>
       <% unless org.description.nil? %>
         <p><%= org.description.first(180) %>... <%= link_to "(read more)", organization_path(org.id) %></p>
