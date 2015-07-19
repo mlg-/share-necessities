@@ -5,6 +5,18 @@
 
     <%= render partial: "form", locals: {organization: @organization} %>
 
+    <h2>Current Organizers</h2>
+      <ul>
+      <% if @organizers.count == 1 %>
+        <p>You are the only organizer. Invite others below!</p>
+      <% else %>
+        <% @organizers.each do |organizer| %>
+          <li><%= organizer.user.first_name %> <%= organizer.user.last_name %><br/>
+          <%= link_to organizer.user.email, "mailto:#{organizer.user.email}" %></li>
+        <% end %>
+      <% end %>
+      </ul>
+
     <a name="invite"><h2>Invite Organizers</h2></a>
 
     <%= render 'invite_form' %>

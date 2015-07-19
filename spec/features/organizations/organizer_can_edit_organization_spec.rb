@@ -50,7 +50,7 @@ feature "Organizer can edit an organization's details", %{
     expect(page).to have_content("617-442-9322")
   end
 
-  scenario "user cannot enter invalid information" do
+  scenario "organizer cannot enter invalid information" do
     organizer = FactoryGirl.create(:organizer)
 
     sign_in_as(organizer.user)
