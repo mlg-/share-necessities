@@ -1,3 +1,19 @@
+@import 'foundation_and_overrides';
+
+// Helpers
+
+.top-margin {
+  margin-top: 3em;
+}
+
+.bottom-margin {
+  margin-bottom: 2em;
+}
+
+.margins {
+  margin: 1.5em;
+}
+
 // Nav
 .title-area li h1 a {
   font-family: 'Oswald', sans-serif;
@@ -19,11 +35,11 @@
 
 .headline-box {
   padding: 12% 25% 5%;
-  text-shadow: 2px 2px #033E58;
 
   h1 {
     color: #FFE056;
     font-size: 3em;
+    text-shadow: 2px 2px #033E58;
   }
 }
 
@@ -39,7 +55,7 @@
     color: #033E58;
     background-color: transparent;
     margin-bottom: 1%;
-    // border: 6px solid #5F0057;
+    text-shadow: 2px 2px $share-yellow;
   }
 
   h2 {
@@ -143,11 +159,46 @@ img {
   margin-top: 1.5em;
 }
 
-.top-margin {
-  margin-top: 3em;
-}
 
 .external-link {
   font-size: 1.2em;
   text-align: center;
+}
+
+// Organization index
+
+.org-row {
+  background-color: $share-dark-blue;
+}
+
+.org-listing {
+  margin-top: 2.5em;
+}
+
+.org-name {
+  color: $share-dark-blue;
+  font-size: 1.2em;
+}
+
+.org-photo {
+  max-width: 200px;
+  border: 5px solid $share-green;
+  padding: 2px;
+}
+
+.org-header {
+  background-image: image-url("kitchen");
+  background-position: center center;
+  background-size: cover;
+  margin-top: -5px;
+  min-height: 25em;
+  min-width: 100%;
+
+  h1 {
+    font-size: 6em;
+    color: $share-yellow;
+    text-shadow: 4px 2px #033E58;
+    padding: 2em 2em 0;
+
+  }
 }
