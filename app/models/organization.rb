@@ -3,11 +3,13 @@ class Organization < ActiveRecord::Base
   has_many :users, through: :organizers
   has_many :items
 
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :city, presence: true
+  validates :name, presence: true, length: { maximum: 250 }
+  validates :address, presence: true, length: { maximum: 250 }
+  validates :city, presence: true, length: { maximum: 100 }
   validates :zip, presence: true
-  validates :email, presence: true
+  validates_format_of :email, with: /@/
+  validates :delivery_instructions, length: { maximum: 1000 }
+  validates :description, length: { maximum: 1000 }
 
   mount_uploader :display_photo, DisplayPhotoUploader
 
