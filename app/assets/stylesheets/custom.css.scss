@@ -167,8 +167,12 @@ img {
 
 // Organization index
 
-.org-row {
-  // background-color: $share-dark-blue;
+.org-row:nth-child(even) {
+  background-color: $smoke;
+}
+
+.org-row:nth-child(odd) {
+  background-color: $snow;
 }
 
 .org-listing {
