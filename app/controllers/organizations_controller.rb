@@ -28,6 +28,7 @@ class OrganizationsController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:id])
+    @organizers = Organizer.where(organization: params[:id])
     unless @organization.organizer?(current_user)
       flash[:error] = "You do not have permission to access this page."
     end
@@ -35,6 +36,7 @@ class OrganizationsController < ApplicationController
 
   def update
     @organization = Organization.find(params[:id])
+    @organizers = Organizer.where(organization: params[:id])
     if @organization.update(organization_params)
       flash[:notice] = "Your organization has been updated."
       redirect_to organization_path(@organization)
