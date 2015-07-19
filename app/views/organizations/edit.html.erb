@@ -1,9 +1,12 @@
 <div class="row">
-  <h1>Edit <%= @organization.name %>'s Information and Settings</h1>
+  <div class="small-12 medium-8 medium-offset-2 margins columns">
 
-  <%= render partial: "form", locals: {organization: @organization} %>
+    <h1>Edit <%= @organization.name %>'s Information and Settings</h1>
 
-  <h2>Invite Organizers</h2>
+    <%= render partial: "form", locals: {organization: @organization} %>
 
-  <%= render 'invite_form' %>
+    <a name="invite"><h2>Invite Organizers</h2></a>
+
+    <%= render 'invite_form' %>
+  </div>
 </div>
