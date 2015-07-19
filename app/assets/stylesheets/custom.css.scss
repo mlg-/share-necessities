@@ -39,7 +39,7 @@
   h1 {
     color: #FFE056;
     font-size: 3em;
-    text-shadow: 2px 2px #033E58;
+    text-shadow: 2px 2px $share-dark-blue;
   }
 }
 
@@ -52,14 +52,14 @@
 
   .i-am {
     background-color: transparent;
-    color: #033E58;
+    color: $share-dark-blue;
     font-size: 6em;
     margin-bottom: 1%;
     text-shadow: 2px 2px $share-yellow;
   }
 
   h2 {
-    background-color: #033E58;
+    background-color: $share-dark-blue;
     border-radius: 2em;
     font-family: 'Oswald', sans-serif;
     margin-bottom: 5%;
@@ -212,7 +212,7 @@ img {
     font-size: 6em;
     padding: 2em 2em 0;
     text-align: center;
-    text-shadow: 4px 2px #033E58;
+    text-shadow: 4px 2px $share-dark-blue;
   }
 }
 
@@ -233,6 +233,13 @@ img {
 
 // Org details
 
+@media (max-width: 499px){
+
+  #org-details-photo img{
+    max-width: 230px;
+  }
+}
+
 
 // My Items
 
@@ -249,7 +256,7 @@ img {
     font-size: 6em;
     padding: 2em 2em 0;
     text-align: center;
-    text-shadow: 4px 2px #033E58;
+    text-shadow: 4px 2px $share-dark-blue;
   }
 }
 
@@ -276,7 +283,7 @@ img {
     font-size: 5em;
     padding: 2em 2em 0;
     text-align: center;
-    text-shadow: 4px 2px #033E58;
+    text-shadow: 4px 2px $share-dark-blue;
   }
 }
 
