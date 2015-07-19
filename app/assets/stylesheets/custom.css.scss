@@ -45,7 +45,7 @@
 // Landing page
 
 .headline-box {
-  padding: 12% 25% 5%;
+  padding: 15% 25% 5%;
 
   h1 {
     color: #FFE056;
@@ -73,7 +73,7 @@
     background-color: $share-dark-blue;
     border-radius: 2em;
     font-family: 'Oswald', sans-serif;
-    margin-bottom: 5%;
+    margin-bottom: 25%;
     opacity: 0.9;
     text-align: center;
 
@@ -316,6 +316,23 @@ img {
       font-size: 3em;
       padding: 2em 0.5em 0;
     }
+  }
+}
+
+// Footer
+
+.footer {
+  background-color: $share-dark-blue;
+  color: $white;
+
+  p {
+    font-size: 1.2em;
+  }
+
+  i {
+    font-size: 2em;
+    color: $white;
+    text-align: center;
   }
 }
 
