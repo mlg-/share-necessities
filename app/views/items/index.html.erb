@@ -1,21 +1,21 @@
-<div class="row">
-  <div class="small-12 medium-8 medium-offset-2 margins columns">
-
-    <h1><%= @organization.name %>'s Incoming Items</h1>
-    <% if @incoming_dibs.empty? %>
-      <p>No incoming items.</p>
-    <% else %>
-      <ul>
-        <% @incoming_dibs.each do |dib| %>
-          <li><%= dib[:quantity] %> <%= dib[:name] %> from <%= dib[:volunteer] %>
-           on <%= dib[:date] %><br/>
-           <%= link_to "Mark Item as Received", item_dib_path(item_id: dib[:item_id], id: dib[:dib_id],
-           dib: {status: "Received"}, organization_id: dib[:organization_id]),
-           method: :patch, class: "button small success" %>
-            </li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
+<div class="small-12 org-items-header">
+  <h1><%= @organization.name %>'s Incoming Items</h1>
 </div>
+<div class="small-12 medium-8 medium-offset-2 margins columns">
+  <% if @incoming_dibs.empty? %>
+    <p>No incoming items.</p>
+  <% else %>
+    <ul>
+      <% @incoming_dibs.each do |dib| %>
+        <li><%= dib[:quantity] %> <%= dib[:name] %> from <%= dib[:volunteer] %>
+         on <%= dib[:date] %><br/>
+         <%= link_to "Mark Item as Received", item_dib_path(item_id: dib[:item_id], id: dib[:dib_id],
+         dib: {status: "Received"}, organization_id: dib[:organization_id]),
+         method: :patch, class: "button small success" %>
+          </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
 

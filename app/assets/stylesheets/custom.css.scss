@@ -212,7 +212,7 @@ img {
     color: $share-yellow;
     text-shadow: 4px 2px #033E58;
     padding: 2em 2em 0;
-
+    text-align: center;
   }
 }
 
@@ -229,3 +229,61 @@ img {
     }
   }
 }
+
+// My Items
+
+.my-items-header {
+  background-image: image-url("veggies");
+  background-position: center center;
+  background-size: cover;
+  margin-top: -5px;
+  min-height: 25em;
+  min-width: 100%;
+
+  h1 {
+    font-size: 6em;
+    color: $share-yellow;
+    text-shadow: 4px 2px #033E58;
+    padding: 2em 2em 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 850px){
+  .my-items-header{
+
+    h1 {
+      font-size: 4em;
+      padding: 2em 0.5em 0;
+    }
+  }
+}
+
+.org-items-header {
+  background-image: image-url("jackets");
+  background-position: center center;
+  background-size: cover;
+  margin-top: -5px;
+  min-height: 25em;
+  min-width: 100%;
+
+  h1 {
+    font-size: 5em;
+    color: $share-yellow;
+    text-shadow: 4px 2px #033E58;
+    padding: 2em 2em 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 850px){
+  .org-items-header{
+
+    h1 {
+      font-size: 3em;
+      padding: 2em 0.5em 0;
+    }
+  }
+}
+
+
