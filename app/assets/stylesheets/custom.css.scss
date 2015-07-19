@@ -27,19 +27,30 @@
 
 .top-bar-section ul li a {
   font-family: 'Quattrocento Sans', sans-serif;
-  font-weight: 300;
   font-size: 1.2em;
+  font-weight: 300;
+}
+
+@media (max-width: 750px) {
+
+  .title-area li h1 a {
+    font-size: 1.2em;
+
+    i {
+      font-size: 1em;
+    }
+  }
 }
 
 // Landing page
 
 .headline-box {
-  padding: 12% 25% 5%;
+  padding: 15% 25% 5%;
 
   h1 {
     color: #FFE056;
     font-size: 3em;
-    text-shadow: 2px 2px #033E58;
+    text-shadow: 2px 2px $share-dark-blue;
   }
 }
 
@@ -51,20 +62,20 @@
   min-height: 100%;
 
   .i-am {
-    font-size: 6em;
-    color: #033E58;
     background-color: transparent;
+    color: $share-dark-blue;
+    font-size: 6em;
     margin-bottom: 1%;
     text-shadow: 2px 2px $share-yellow;
   }
 
   h2 {
+    background-color: $share-dark-blue;
+    border-radius: 2em;
     font-family: 'Oswald', sans-serif;
-    background-color: #033E58;
+    margin-bottom: 25%;
     opacity: 0.9;
     text-align: center;
-    border-radius: 2em;
-    margin-bottom: 5%;
 
     a {
       color: #FFEFA5;
@@ -115,7 +126,7 @@
   }
 
   .headline-box {
-    padding: 38% 12% 15%;
+    padding: 40% 12% 15%;
 
     h1 {
       font-size: 2em;
@@ -129,8 +140,8 @@
     }
 
     h2 {
-      font-size: 1.6em;
       border-radius: 10px;
+      font-size: 1.3em;
       padding: 10px;
     }
   }
@@ -139,8 +150,8 @@
 // Organization details page
 
 img {
-  max-width: none;
   margin: 2em;
+  max-width: none;
 }
 
 .got-it {
@@ -162,8 +173,8 @@ img {
 
 .external-link {
   font-size: 1.2em;
-  text-align: center;
   margin-left: 2em;
+  text-align: center;
 }
 
 // Organization index
@@ -190,13 +201,13 @@ img {
 }
 
 .org-photo {
-  max-width: 200px;
   border: 5px solid $share-dark-blue;
-  padding: 2px;
-  text-align: center;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  max-width: 200px;
+  padding: 2px;
+  text-align: center;
 }
 
 .org-header {
@@ -208,27 +219,49 @@ img {
   min-width: 100%;
 
   h1 {
-    font-size: 6em;
     color: $share-yellow;
-    text-shadow: 4px 2px #033E58;
+    font-size: 6em;
     padding: 2em 2em 0;
     text-align: center;
+    text-shadow: 4px 2px $share-dark-blue;
   }
 }
 
 @media (max-width: 850px){
   .org-name {
+    font-size: 1.5em;
     text-align: center;
   }
 
   .org-header{
 
     h1 {
-      font-size: 4em;
+      font-size: 3.5em;
       padding: 2em 0.5em 0;
     }
   }
 }
+
+// Org details
+
+@media (min-width: 500px) and (max-width: 815px) {
+
+  #org-details-photo img {
+    max-width: 250px;
+    margin-left: 1em;
+  }
+}
+
+@media (max-width: 499px){
+
+  #org-details-photo img {
+    max-width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
 
 // My Items
 
@@ -241,16 +274,16 @@ img {
   min-width: 100%;
 
   h1 {
-    font-size: 6em;
     color: $share-yellow;
-    text-shadow: 4px 2px #033E58;
+    font-size: 6em;
     padding: 2em 2em 0;
     text-align: center;
+    text-shadow: 4px 2px $share-dark-blue;
   }
 }
 
 @media (max-width: 850px){
-  .my-items-header{
+  .my-items-header {
 
     h1 {
       font-size: 4em;
@@ -268,21 +301,38 @@ img {
   min-width: 100%;
 
   h1 {
-    font-size: 5em;
     color: $share-yellow;
-    text-shadow: 4px 2px #033E58;
+    font-size: 5em;
     padding: 2em 2em 0;
     text-align: center;
+    text-shadow: 4px 2px $share-dark-blue;
   }
 }
 
 @media (max-width: 850px){
-  .org-items-header{
+  .org-items-header {
 
     h1 {
       font-size: 3em;
       padding: 2em 0.5em 0;
     }
+  }
+}
+
+// Footer
+
+.footer {
+  background-color: $share-dark-blue;
+  color: $white;
+
+  p {
+    font-size: 1.2em;
+  }
+
+  i {
+    font-size: 2em;
+    color: $white;
+    text-align: center;
   }
 }
 

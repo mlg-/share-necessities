@@ -13,6 +13,7 @@
  *= require_self
  *= require foundation
  *= require foundation_and_overrides
+ *= require responsive-tables
  *= require font-awesome
  *= require animate
  *= require custom

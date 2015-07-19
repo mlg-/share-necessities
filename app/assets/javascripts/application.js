@@ -16,6 +16,7 @@
 //= require gmaps/google
 //= require_tree .
 //= require foundation
+//= require responsive-tables.js
 
 $(function(){ $(document).foundation(); });
 
