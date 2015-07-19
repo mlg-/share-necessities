@@ -31,6 +31,17 @@
   font-weight: 300;
 }
 
+@media (max-width: 750px) {
+
+  .title-area li h1 a {
+    font-size: 1.2em;
+
+    i {
+      font-size: 1em;
+    }
+  }
+}
+
 // Landing page
 
 .headline-box {
@@ -233,10 +244,21 @@ img {
 
 // Org details
 
+@media (min-width: 500px) and (max-width: 815px) {
+
+  #org-details-photo img {
+    max-width: 250px;
+    margin-left: 1em;
+  }
+}
+
 @media (max-width: 499px){
 
   #org-details-photo img {
     max-width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 }
 
