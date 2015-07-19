@@ -152,7 +152,7 @@ img {
 }
 
 .organizer-info {
-  margin-top: 2em;
+  margin: 2em 2em 0;
 }
 
 .wishlist {
@@ -163,6 +163,7 @@ img {
 .external-link {
   font-size: 1.2em;
   text-align: center;
+  margin-left: 2em;
 }
 
 // Organization index
@@ -171,8 +172,12 @@ img {
   background-color: $snow;
 }
 
-.org-row:nth-child(odd){
+.org-row:nth-child(odd) {
   background-color: $smoke;
+}
+
+.pagination {
+  margin-top: 1em;
 }
 
 .org-listing {
@@ -180,8 +185,8 @@ img {
 }
 
 .org-name {
-  color: $share-green;
-  font-size: 1.5em;
+  color: $share-dark-blue;
+  font-size: 1.8em;
 }
 
 .org-photo {
@@ -212,6 +217,10 @@ img {
 }
 
 @media (max-width: 850px){
+  .org-name {
+    text-align: center;
+  }
+
   .org-header{
 
     h1 {
