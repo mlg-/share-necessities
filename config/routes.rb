@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'homes#index'
+  root "homes#index"
   devise_for :users, controllers: { invitations: "users/invitations" }
 
   resources :organizations, except: [:destroy] do
@@ -8,15 +8,13 @@ Rails.application.routes.draw do
 
   resources :items do
     collection do
-      get 'search'
+      get "search"
     end
   end
 
   resources :items do
     resources :dibs, only: [:new, :create, :update, :destroy]
   end
-
+  
   resources :dibs, only: [:index]
-
-
 end

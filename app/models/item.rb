@@ -11,6 +11,6 @@ class Item < ActiveRecord::Base
     pg_search_scope :search,
       :against => :name,
       :using => {
-        :tsearch => {:prefix => true}
+        :tsearch => { :prefix => true }
       }
 end
