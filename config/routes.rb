@@ -7,8 +7,16 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    collection do
+      get 'search'
+    end
+  end
+
+  resources :items do
     resources :dibs, only: [:new, :create, :update, :destroy]
   end
 
   resources :dibs, only: [:index]
+
+
 end

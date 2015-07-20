@@ -2,7 +2,14 @@ class OrganizationsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @organizations = Organization.all.order(:name).page params[:page]
+    if params[:q_org].nil? || params[:q_org] == ""
+      flash[:notice] = "Please enter a search term."
+    end
+    if params[:q_org].present?
+      @organizations = Organization.search(params[:q_org]).page params[:page]
+    else
+      @organizations = Organization.all.order(:name).page params[:page]
+    end
   end
 
   def new

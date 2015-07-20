@@ -1,23 +1,56 @@
-<div class="small-12 org-header">
+<div class="small-12 org-header columns">
   <h1 class="text-center">All Organizations</h1>
+  <h2 class="text-center" id="search-options">Search by <%= link_to "Organization", organizations_path, id: "org-search-link" %> or <%= link_to "Item",
+     search_items_path, id: "item-search-link" %></h2>
+  <div class="row hide" id="org-search">
+    <%= form_tag organizations_path, method: :get do %>
+    <div class="small-6 medium-4 medium-offset-3 columns">
+      <%= text_field_tag :q_org, params[:q],
+           placeholder: "Find an organization", class: "right inline" %>
+    </div>
+    <div class="small-3 medium-4 columns left">
+      <%= submit_tag "Search", class: "button small", id: "org-search-submit" %>
+      <i class="fa fa-undo fa-2x exit" id="close-form"></i>
+    </div>
+    <% end %>
+  </div>
+  <div class="row hide" id="item-search">
+    <%= form_tag search_items_path, method: :get do %>
+    <div class="small-6 medium-4 medium-offset-3 columns">
+      <%= text_field_tag :q_item, params[:q],
+           placeholder: "Find a needed item", class: "right inline" %>
+    </div>
+    <div class="small-3 medium-4 columns left">
+      <%= submit_tag "Search", class: "button small", id:"item-search-submit" %>
+      <i class="fa fa-undo fa-2x exit" id="close-form"></i>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+
 </div>
 <div class="small-12 medium-10 medium-offset-1 columns">
-    <% @organizations.each do |org| %>
-    <div class="row org-row">
-      <div class="small-12 medium-6 columns">
-      <% if org.display_photo.file.nil? %>
-        <%= link_to image_tag("comingsoon.png", class: "org-photo"), organization_path(org.id) %>
-      <% else %>
-        <%= link_to image_tag(org.display_photo, class: "org-photo"), organization_path(org.id) %>
-      <% end %>
+    <% if @organizations.empty? %>
+      <p class="big-margins text-center"> No organizations found. </p>
+    <% else %>
+      <% @organizations.each do |org| %>
+      <div class="row org-row">
+        <div class="small-12 medium-6 columns">
+        <% if org.display_photo.file.nil? %>
+          <%= link_to image_tag("comingsoon.png", class: "org-photo"), organization_path(org.id) %>
+        <% else %>
+          <%= link_to image_tag(org.display_photo, class: "org-photo"), organization_path(org.id) %>
+        <% end %>
+        </div>
+        <div class="small-12 medium-6 columns org-listing">
+        <%= link_to org.name, organization_path(org.id), class: "org-name" %><br/>
+        <% unless org.description.nil? %>
+          <p><%= org.description.first(180) %>... <%= link_to "(read more)", organization_path(org.id) %></p>
+        <% end %>
+        </div>
       </div>
-      <div class="small-12 medium-6 columns org-listing">
-      <%= link_to org.name, organization_path(org.id), class: "org-name" %><br/>
-      <% unless org.description.nil? %>
-        <p><%= org.description.first(180) %>... <%= link_to "(read more)", organization_path(org.id) %></p>
       <% end %>
-      </div>
-    </div>
     <% end %>
     <%= paginate @organizations %>
 </div>

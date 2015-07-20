@@ -15,6 +15,13 @@ class Organization < ActiveRecord::Base
 
   paginates_per 20
 
+  include PgSearch
+    pg_search_scope :search,
+      :against => :name,
+      :using => {
+        :tsearch => {:prefix => true}
+      }
+
   def organizer?(user)
     return true if organizers.any? { |o| o[:user_id] == user.id }
   end
