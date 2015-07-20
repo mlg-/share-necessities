@@ -14,6 +14,14 @@
   margin: 1.5em;
 }
 
+.big-margins {
+  margin: 3em;
+}
+
+.left {
+  float: left;
+}
+
 // Nav
 .title-area li h1 a {
   font-family: 'Oswald', sans-serif;
@@ -179,6 +187,27 @@ img {
 
 // Organization index
 
+.org-search {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#q {
+  // background-color: scale-color($share-dark-blue, $lightness: 25%);
+  // color: $ghost;
+  height: 45px;
+}
+
+.exit {
+  color: $share-yellow;
+  // text-shadow: 2px 2px 2px $white;
+  vertical-align: middle;
+  background-color: $share-dark-blue;
+  margin-left: 0.5em;
+  // opacity: 0.8;
+}
+
 .org-row:nth-child(even) {
   background-color: $snow;
 }
@@ -221,9 +250,17 @@ img {
   h1 {
     color: $share-yellow;
     font-size: 6em;
-    padding: 2em 2em 0;
+    padding: 1.5em 2em 0;
     text-align: center;
     text-shadow: 4px 2px $share-dark-blue;
+  }
+
+  h2 {
+    background-color: $share-dark-blue;
+    border-radius: 50px;
+    color: $ghost;
+    margin: 0 35%;
+    text-align: center;
   }
 }
 

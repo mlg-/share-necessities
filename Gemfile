@@ -62,6 +62,9 @@ gem 'devise_invitable'
 # CSS & JS framework
 gem 'foundation-rails'
 
+# Search functionality
+gem 'pg_search'
+
 group :production do
   # Heroku assets
   gem 'rails_12factor'
@@ -87,4 +90,9 @@ group :development, :test do
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers'
+end
+
+group :test do
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end

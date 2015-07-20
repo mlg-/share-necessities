@@ -1,0 +1,12 @@
+<div class="small-12 my-items-header">
+  <h1 class="text-center">Items Search</h1>
+</div>
+<div class="small-12 medium-8 medium-offset-2 margins columns">
+  <ul>
+  <% if @items.present? %>
+    <% @items.each do |item| %>
+      <li><%= item.quantity %> of <%= item.name %> needed by <%= link_to item.organization.name, organization_path(item.organization.id) %></li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>

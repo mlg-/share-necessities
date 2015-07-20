@@ -12,6 +12,15 @@ require 'capybara/rspec'
 require File.join(File.dirname(__FILE__), 'support/user_sign_in_helper')
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+require "capybara/poltergeist"
+Capybara.javascript_driver = :poltergeist
+
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
+RSpec.configure do |config|
+  config.use_transactional_fixtures = false
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

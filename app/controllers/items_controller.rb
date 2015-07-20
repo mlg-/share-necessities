@@ -1,6 +1,14 @@
 class ItemsController < ApplicationController
-  before_filter :require_login
-  before_filter :org_admin?
+  before_filter :require_login, except: [:search]
+  before_filter :org_admin?, except: [:search]
+
+  def search
+    if params[:q_item].nil? || params[:q_item] == ""
+      flash[:notice] = "Please enter a search term."
+    elsif params[:q_item].present?
+      @items = Item.search(params[:q_item]).page params[:page]
+    end
+  end
 
   def index
     @organization = Organization.find(params[:organization_id])
