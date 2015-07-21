@@ -65,6 +65,11 @@ gem 'foundation-rails'
 # Search functionality
 gem 'pg_search'
 
+# Amazon Wishlist import
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'nokogiri'
+
 group :production do
   # Heroku assets
   gem 'rails_12factor'
