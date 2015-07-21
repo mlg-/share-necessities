@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   end
 
   resources :dibs, only: [:index]
+
+  resources :imports, only: [:new, :create, :show]
 end

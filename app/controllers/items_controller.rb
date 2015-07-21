@@ -10,15 +10,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def wishlist_import
-    url = params[:url]
-    conn = Faraday.new(:url => 'http://sushi.com') do |faraday|
-      faraday.request  :url_encoded             # form-encode POST params
-      faraday.response :logger                  # log requests to STDOUT
-      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-    end
-  end
-
   def index
     @organization = Organization.find(params[:organization_id])
     @items = Item.where(organization: params[:organization_id])
@@ -28,10 +19,12 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @organization = Organization.find(params[:organization_id])
+    @import = Import.new
   end
 
   def create
     @item = Item.new(item_params)
+    @import = Import.new
     @organization = Organization.find(params[:organization_id])
     if @item.save
       flash[:notice] = "Your item has been added."

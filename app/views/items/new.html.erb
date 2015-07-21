@@ -1,8 +1,14 @@
 <div class="row">
   <div class="small-12 medium-8 medium-offset-2 margins columns">
 
-    <h1>Add a New Item to <%= @organization.name %>'s Wishlist</h1>
+    <h2>Add a New Item to <%= @organization.name %>'s Wishlist</h1>
 
     <%= render "form" %>
+
+    <h2>Import Amazon Wishlist</h2>
+
+    <%= render "imports/form", locals: { organization: @organization,
+                                                 user: current_user,
+                                                 method: :create } %>
   </div>
 </div>
