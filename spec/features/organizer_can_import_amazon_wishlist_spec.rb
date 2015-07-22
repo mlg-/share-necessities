@@ -5,7 +5,6 @@ feature "Organizer can import wishlist from Amazon", %{
   from Amazon,
   So that I don't have to re-enter all my items.
 } do
-
   # Acceptance Criteria
   # [ ] Organizer can paste in link to Amazon wishlist
   # [ ] Organizer receives list of items to approve or exclude from the import.

@@ -17,7 +17,6 @@ class Import < ActiveRecord::Base
 
   def self.find_wishlist_pages(first_page_data, user_supplied_url)
     first_page = Nokogiri::HTML.parse(first_page_data)
-    # find out how many page of items there are to query
     pagination_info = first_page.xpath(".//*[@id='wishlistPagination']/span/div/ul/li[@class='a-']/a").collect
     page_urls = pagination_info.map { |link| "http://amazon.com#{link[:href]}" }
     page_urls.unshift(user_supplied_url)
@@ -25,7 +24,7 @@ class Import < ActiveRecord::Base
 
   def self.get_item_names(items, wishlist_page_html)
     item_names = wishlist_page_html.xpath("//a[contains(@id,'itemName')]").collect(&:text)
-    item_names.map! { |name| name.squish }
+    item_names.map!(&:squish)
     item_names.each do |name|
       item_hash = {}
       item_hash["name"] = name
@@ -47,7 +46,7 @@ class Import < ActiveRecord::Base
 
   def self.get_item_quantities(items, wishlist_page_html)
     item_quantities = wishlist_page_html.xpath(".//*[contains(@id, 'itemRequested_')]").collect(&:text)
-    item_quantities.map! { |data| data.squish }
+    item_quantities.map!(&:squish)
     i = 0
     items.each do |item|
       item["quantity"] = item_quantities[i]
