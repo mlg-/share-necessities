@@ -7,7 +7,6 @@ class ImportsController < ApplicationController
     @import = Import.new(import_params)
     @organization = Organization.find(params[:import][:organization_id])
     @items = Import.wishlist(@import.url)
-    binding.pry
     if @import.save
       flash[:notice] = "Your wishlist is importing."
       redirect_to import_path(@import)
