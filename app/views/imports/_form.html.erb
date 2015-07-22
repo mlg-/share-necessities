@@ -1,0 +1,10 @@
+<%= form_for @import do |f| %>
+
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+
+  <%= f.hidden_field :organization_id, value: @organization.id %>
+
+  <%= f.submit class: "button" %>
+
+<% end %>

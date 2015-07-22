@@ -98,6 +98,10 @@ GEM
     execjs (2.5.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.32.0)
@@ -230,6 +234,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -387,6 +392,8 @@ DEPENDENCIES
   devise_invitable
   dotenv-rails
   factory_girl
+  faraday
+  faraday_middleware
   fog
   font-awesome-rails
   foundation-rails
@@ -395,6 +402,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
+  nokogiri
   parallax-rails
   pg
   pg_search
