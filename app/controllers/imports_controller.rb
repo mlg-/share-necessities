@@ -6,7 +6,6 @@ class ImportsController < ApplicationController
   def create
     @import = Import.new(import_params)
     @organization = Organization.find(params[:import][:organization_id])
-    @items = Import.wishlist(@import.url)
     if @import.save
       flash[:notice] = "Your wishlist is importing."
       redirect_to import_path(@import)
@@ -18,6 +17,15 @@ class ImportsController < ApplicationController
 
   def show
     @import = Import.find(params[:id])
+    @organization = Organization.find(@import.organization_id)
+    @items = Import.wishlist(@import.url)
+    @items.each do |item|
+      Item.create!(name: item["name"],
+                   url: item["url"],
+                   quantity: item["quantity"],
+                   organization_id: @organization.id)
+    end
+    flash[:notice] = "The items below were imported."
   end
 
   protected
