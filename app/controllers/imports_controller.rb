@@ -21,9 +21,9 @@ class ImportsController < ApplicationController
     @items = Import.wishlist(@import.url)
     @items.each do |item|
       Item.create!(name: item["name"],
-                  url: item["url"],
-                  quantity: item["quantity"],
-                  organization_id: @organization.id)
+                   url: item["url"],
+                   quantity: item["quantity"],
+                   organization_id: @organization.id)
     end
     flash[:notice] = "The items below were imported."
   end
