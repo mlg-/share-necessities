@@ -1,1 +1,10 @@
-<h1>Your import is processing.</h1>
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 margins columns">
+    <h1>Your Imported Items</h1>
+    <ul>
+    <% @items.each do |item| %>
+      <li><%= link_to item["name"], item["url"] %><br/>
+          Quantity: <%= item["quantity"] %></li>
+    <% end %>
+  </div>
+</div>

@@ -31,6 +31,6 @@ feature "Organizer can import wishlist from Amazon", %{
     fill_in("import_url", with: "http://amzn.com/w/18J9EWCXO8F8D")
     click_button("Create Import")
 
-    expect(page).to have_content("Your import is processing.")
+    expect(page).to have_content("Your Imported Items")
   end
 end

@@ -35,6 +35,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def create_multiple
+  end
+
   def edit
     @organization = Organization.find(params[:organization_id])
     @item = Item.find(params[:item_id])
