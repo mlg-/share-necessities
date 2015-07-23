@@ -70,6 +70,9 @@ gem 'faraday'
 gem 'faraday_middleware'
 gem 'nokogiri'
 
+# Item thumbnails
+gem 'link_thumbnailer'
+
 group :production do
   # Heroku assets
   gem 'rails_12factor'

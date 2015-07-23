@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items do
+  resources :items, only: [:show] do
     resources :dibs, only: [:new, :create, :update, :destroy]
   end
+
+  resources :thumbnails, only: [:new]
 
   resources :dibs, only: [:index]
 
