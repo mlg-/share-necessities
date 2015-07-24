@@ -44,6 +44,7 @@
     <table class="responsive">
       <th>
         <tr>
+          <td width="150"></td>
           <td width="150">Item Name</td>
           <td width="50">Quantity</td>
           <td width="200">Description</td>
@@ -57,6 +58,11 @@
         </th>
         <% @organization.items.each do |item| %>
         <tr>
+          <% if item.thumbnail_url %>
+            <td><%= image_tag(item.thumbnail_url, class: "thumbnail") %></td>
+          <% else %>
+          <td></td>
+          <% end %>
           <td><%= item.name %></td>
           <td><%= item.quantity %></td>
           <% if item.description %>

@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150723172106) do
     t.string  "url"
     t.text    "description"
     t.integer "organization_id", null: false
-    t.string  "thumbnails"
+    t.string  "thumbnail_url"
   end
 
   create_table "organizations", force: :cascade do |t|
