@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :organization
   belongs_to :user
-  has_one :dib
+  has_many :dibs
 
   validates :name, presence: true, length: { maximum: 200 }
   validates :quantity, presence: true, numericality: true

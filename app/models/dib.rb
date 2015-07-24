@@ -9,16 +9,20 @@ class Dib < ActiveRecord::Base
   def self.incoming_dibs_list(items)
     all_dibs = []
     items.each do |item|
-      unless item.dib.nil? || item.dib.status == "Received"
-        dib = {}
-        dib[:name] = item.name
-        dib[:quantity] = item.dib.quantity
-        dib[:volunteer] = User.find(item.dib.user_id).first_name
-        dib[:date] = item.dib.created_at.strftime("%B %d, %Y")
-        dib[:item_id] = item.id
-        dib[:dib_id] = item.dib.id
-        dib[:organization_id] = item.organization.id
-        all_dibs << dib
+      unless item.dibs.nil?
+        item.dibs.each do |dib|
+          unless dib.status == "Received"
+            dib_info = {}
+            dib_info[:name] = item.name
+            dib_info[:quantity] = dib.quantity
+            dib_info[:volunteer] = User.find(dib.user_id).first_name
+            dib_info[:date] = dib.created_at.strftime("%B %d, %Y")
+            dib_info[:item_id] = item.id
+            dib_info[:dib_id] = dib.id
+            dib_info[:organization_id] = item.organization.id
+            all_dibs << dib_info
+          end
+        end
       end
     end
     all_dibs
