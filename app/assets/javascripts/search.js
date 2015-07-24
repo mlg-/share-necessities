@@ -10,7 +10,7 @@ $('#item-search-link').click(function(event){
   $('#item-search').show();
 });
 
-$('#close-form').click(function(){
+$('.close-form').click(function(){
   $('#search-options').show();
   $('#org-search').hide();
   $('#item-search').hide();
